@@ -1,24 +1,11 @@
-var typed = new Typed('.type', {
-    strings: ['Bringing Ideas to Life with Code','Bringing Ideas to Life with Code'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
-});
-
+// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
         });
     });
-});
-
-window.addEventListener('scroll', function() {
-    let nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.style.transform = 'translateY(0)';
-    }
 });
